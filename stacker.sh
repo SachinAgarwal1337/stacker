@@ -37,6 +37,13 @@ if [[ "$COMMAND" = "build" ]] ; then
 	echo "supervisor is installed successfully!"
 
 	sudo apt-get update > /dev/null
+
+	# install redis
+	echo "Installing redis server.."
+	sudo apt-get install -qq redis-server
+	echo "redis server is installed successfully! Recomended to set password for redis"
+
+	sudo apt-get update > /dev/null
 	
 	# install nginx
 	echo "Installing NGINX.."
@@ -134,7 +141,7 @@ elif [[ "$COMMAND" = "site" ]] ; then
 	fi
 
 	# pull http server block
-	curl -s -L https://raw.githubusercontent.com/santoshbaggam/stacker/master/scripts/nginx-http-server-block.conf > $SITE.tmp
+	curl -s -L https://raw.githubusercontent.com/SachinAgarwal1337/stacker/master/scripts/nginx-http-server-block.conf > $SITE.tmp
 
 	sudo sed -i "s/server_name {SITE};/server_name $SITE;/" $SITE.tmp
 	sudo sed -i "s|root {PATH};|root $APP_PATH;|" $SITE.tmp
@@ -197,12 +204,12 @@ elif [[ "$COMMAND" = "site" ]] ; then
 
 	# check for nginx ssl param snippet, else pull it in
 	if [[ ! -e /etc/nginx/snippets/ssl-params.conf ]] ; then
-		curl -s -L https://raw.githubusercontent.com/santoshbaggam/stacker/master/scripts/nginx-ssl-snippet.conf > /etc/nginx/snippets/ssl-params.conf
+		curl -s -L https://raw.githubusercontent.com/SachinAgarwal1337/stacker/master/scripts/nginx-ssl-snippet.conf > /etc/nginx/snippets/ssl-params.conf
 	fi
 
 	echo "Creating NGINX HTTPS server block.."
 	# pull https server block
-	curl -s -L https://raw.githubusercontent.com/santoshbaggam/stacker/master/scripts/nginx-https-server-block.conf > $SITE.tmp
+	curl -s -L https://raw.githubusercontent.com/SachinAgarwal1337/stacker/master/scripts/nginx-https-server-block.conf > $SITE.tmp
 
 	sudo sed -i "s|ssl_certificate /etc/letsencrypt/live/{SITE}/fullchain.pem;|ssl_certificate /etc/letsencrypt/live/$SITE/fullchain.pem;|" $SITE.tmp
 	sudo sed -i "s|ssl_certificate_key /etc/letsencrypt/live/{SITE}/privkey.pem;|ssl_certificate_key /etc/letsencrypt/live/$SITE/privkey.pem;|" $SITE.tmp
