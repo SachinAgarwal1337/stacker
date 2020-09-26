@@ -6,23 +6,13 @@ Stacker makes configuring web servers a cinch, letting developers focus on what 
 
 You can install the following stack with the help of Stacker build:
 * Languages
-    * PHP (7.0)
-    * PHP-FPM (7.0)
-    * Python (3.6)
-    * Nodejs (6.1) (coming soon)
-* Databases (coming soon)
-    * MySQL
-    * PostgreSQL
-    * MongoDB
-    * Redis
-    * Memcached
+    * PHP (7.4)
+    * PHP-FPM (7.4)
 * Web Servers
     * NGINX
-    * Apache (coming soon)
 * SSL
     * Letsencrypt
     * Webroot
-    * Certbot (coming soon)
 * Tools
     * Git
     * cURL
@@ -34,7 +24,7 @@ You can install the following stack with the help of Stacker build:
 ### Installation
 
 ``` curl
-curl -sSL https://raw.githubusercontent.com/santoshbaggam/stacker/master/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/SachinAgarwal1337/stacker/master/install.sh | bash
 ```
 
 > Note: As of now, Stacker works only on the Xenial (16.04) version of Ubuntu (preferably a fresh installation). The other flavors of Linux and their versions would be supported soon.
@@ -72,4 +62,4 @@ Any [open issues](https://github.com/santoshbaggam/stacker/issues) can be discus
 
 ## License
 
-Stacker is released under the [MIT License](https://github.com/santoshbaggam/stacker/blob/master/LICENSE).
+Stacker is released under the [MIT License](https://github.com/SachinAgarwal1337/stacker/blob/master/LICENSE).

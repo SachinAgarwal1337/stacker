@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-github_repo=https://github.com/santoshbaggam/stacker
+github_repo=https://github.com/SachinAgarwal1337/stacker
 
 COMMAND=$1
 
@@ -26,7 +26,7 @@ if [[ "$COMMAND" = "build" ]] ; then
 
 	# install base utils
 	echo "Installing common software.."
-	sudo apt-get install -qq software-properties-common build-essential curl wget unzip git python-software-properties
+	sudo apt-get install -qq software-properties-common build-essential curl wget unzip git
 	echo "Installed successfully!"
 
 	sudo apt-get update > /dev/null
@@ -38,8 +38,8 @@ if [[ "$COMMAND" = "build" ]] ; then
 
 	# install php and php utils
 	echo "Installing PHP/modules.."
-	sudo apt-get install -qq php php-mysql php-pgsql php-sqlite3 php-curl \
-		php-gd php-gmp php-mcrypt php-mbstring php-memcached \
+	sudo apt-get install -qq php php-fpm php-mysql php-pgsql php-sqlite3 php-curl \
+		php-gd php-gmp php-mbstring php-memcached \
 		php-dompdf php-zip php-xml
 	echo "PHP/modules are installed successfully!"
 
@@ -49,7 +49,7 @@ if [[ "$COMMAND" = "build" ]] ; then
 	echo "PHP is secured!"
 
 	# restart php-fpm
-	sudo service php7.0-fpm restart
+	sudo service php7.4-fpm restart
 
 	# install composer
 	echo "Installing Composer.."
