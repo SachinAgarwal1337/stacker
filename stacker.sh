@@ -31,6 +31,13 @@ if [[ "$COMMAND" = "build" ]] ; then
 
 	sudo apt-get update > /dev/null
 
+	# install supervisor
+	echo "Installing supervisor.."
+	sudo apt-get install -qq supervisor
+	echo "supervisor is installed successfully!"
+
+	sudo apt-get update > /dev/null
+	
 	# install nginx
 	echo "Installing NGINX.."
 	sudo apt-get install -qq nginx
