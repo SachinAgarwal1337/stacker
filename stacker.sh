@@ -44,6 +44,14 @@ if [[ "$COMMAND" = "build" ]] ; then
 	echo "redis server is installed successfully! Recomended to set password for redis"
 
 	sudo apt-get update > /dev/null
+
+	# install redis
+	echo "Installing nodejs.."
+	sudo apt-get install -qq nodejs npm
+	sudo npm install n
+	echo "nodejs is installed successfully! Recomended to change the version using n"
+
+	sudo apt-get update > /dev/null
 	
 	# install nginx
 	echo "Installing NGINX.."
