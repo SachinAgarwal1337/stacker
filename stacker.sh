@@ -48,7 +48,7 @@ if [[ "$COMMAND" = "build" ]] ; then
 	# install redis
 	echo "Installing nodejs.."
 	sudo apt-get install -qq nodejs npm
-	sudo npm install n
+	sudo npm install -g n
 	echo "nodejs is installed successfully! Recomended to change the version using n"
 
 	sudo apt-get update > /dev/null
