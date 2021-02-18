@@ -6,8 +6,8 @@ Stacker makes configuring web servers a cinch, letting developers focus on what 
 
 You can install the following stack with the help of Stacker build:
 * Languages
-    * PHP (7.4)
-    * PHP-FPM (7.4)
+    * PHP (8.0)
+    * PHP-FPM (8.0)
 * Web Servers
     * NGINX
 * SSL

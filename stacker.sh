@@ -61,6 +61,7 @@ if [[ "$COMMAND" = "build" ]] ; then
 	# install php and php utils
 	echo "Installing PHP/modules.."
 	sudo add-apt-repository ppa:ondrej/php
+	sudo apt-get update > /dev/null
 	sudo apt-get install -qq php8 php8-fpm php8-mysql php8-pgsql php8-sqlite3 php8-curl \
 		php8-gd php8-gmp php8-mbstring php8-memcached \
 		php8-dompdf php8-zip php8-xml
