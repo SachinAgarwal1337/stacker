@@ -62,9 +62,9 @@ if [[ "$COMMAND" = "build" ]] ; then
 	echo "Installing PHP/modules.."
 	sudo add-apt-repository ppa:ondrej/php
 	sudo apt-get update > /dev/null
-	sudo apt-get install -qq php8 php8-fpm php8-mysql php8-pgsql php8-sqlite3 php8-curl \
-		php8-gd php8-gmp php8-mbstring php8-memcached \
-		php8-dompdf php8-zip php8-xml
+	sudo apt-get install -qq php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite3 php8.0-curl \
+		php8.0-gd php8.0-gmp php8.0-mbstring php8.0-memcached \
+		php-dompdf php8.0-zip php8.0-xml
 	echo "PHP/modules are installed successfully!"
 
 	# secure php to not to execute the closest file it finds
