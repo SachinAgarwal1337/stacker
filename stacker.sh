@@ -62,18 +62,18 @@ if [[ "$COMMAND" = "build" ]] ; then
 	echo "Installing PHP/modules.."
 	sudo add-apt-repository ppa:ondrej/php
 	sudo apt-get update > /dev/null
-	sudo apt-get install -qq php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite3 php8.0-curl \
-		php8.0-gd php8.0-gmp php8.0-mbstring php8.0-memcached \
-		php-dompdf php8.0-zip php8.0-xml
+	sudo apt-get install -qq php8.1 php8.1-fpm php8.1-mysql php8.1-pgsql php8.1-sqlite3 php8.1-curl \
+		php8.1-gd php8.1-gmp php8.1-mbstring php8.1-memcached \
+		php-dompdf php8.1-zip php8.1-xml
 	echo "PHP/modules are installed successfully!"
 
 	# secure php to not to execute the closest file it finds
 	echo "Securing PHP.."
-	sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/8.0/fpm/php.ini
+	sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/8.1/fpm/php.ini
 	echo "PHP is secured!"
 
 	# restart php-fpm
-	sudo service php8.0-fpm restart
+	sudo service php8.1-fpm restart
 
 	# install composer
 	echo "Installing Composer.."
