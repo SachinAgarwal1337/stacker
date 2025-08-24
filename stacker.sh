@@ -45,14 +45,14 @@ if [[ "$COMMAND" = "build" ]] ; then
 
 	sudo apt-get update > /dev/null
 
-	# install redis
+	# install nodejs
 	echo "Installing nodejs.."
 	sudo apt-get install -qq nodejs npm
 	sudo npm install -g n
 	echo "nodejs is installed successfully! Recomended to change the version using n"
 
 	sudo apt-get update > /dev/null
-	
+		
 	# install nginx
 	echo "Installing NGINX.."
 	sudo apt-get install -qq nginx
@@ -62,18 +62,18 @@ if [[ "$COMMAND" = "build" ]] ; then
 	echo "Installing PHP/modules.."
 	sudo add-apt-repository ppa:ondrej/php
 	sudo apt-get update > /dev/null
-	sudo apt-get install -qq php8.1 php8.1-fpm php8.1-mysql php8.1-pgsql php8.1-sqlite3 php8.1-curl \
-		php8.1-gd php8.1-gmp php8.1-mbstring php8.1-memcached \
-		php-dompdf php8.1-zip php8.1-xml php8.1-intl imagemagick php-imagick
+	sudo apt-get install -qq php8.4 php8.4-fpm php8.4-mysql php8.4-pgsql php8.4-sqlite3 php8.4-curl \
+		php8.4-gd php8.4-gmp php8.4-mbstring php8.4-memcached \
+		php-dompdf php8.4-zip php8.4-xml php8.4-intl imagemagick php-imagick
 	echo "PHP/modules are installed successfully!"
 
 	# secure php to not to execute the closest file it finds
 	echo "Securing PHP.."
-	sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/8.1/fpm/php.ini
+	sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php/8.4/fpm/php.ini
 	echo "PHP is secured!"
 
 	# restart php-fpm
-	sudo service php8.1-fpm restart
+	sudo service php8.4-fpm restart
 
 	# install composer
 	echo "Installing Composer.."
