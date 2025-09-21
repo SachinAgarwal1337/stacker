@@ -2,12 +2,12 @@
 
 if [[ -f /etc/lsb-release ]]; then
     cat /etc/lsb-release | grep "[20.04|22.04]" > /dev/null
-    if [[ $? -eq 0 ]]; then
+    if ![[ $? -eq 0 ]]; then
         # if [[ $(uname -m) != "x86_64" ]]; then
         #     echo "Stacker only supports x86_64 architecture."
         #     exit 1
         # fi
-    else
+    # else
         echo "Stacker only supports Ubuntu."
         exit 1
     fi
