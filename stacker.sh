@@ -12,59 +12,57 @@ fi
 
 # check for `build` command
 if [[ "$COMMAND" = "build" ]] ; then
-	sudo apt-get update > /dev/null
+	sudo apt update > /dev/null
 
-	# sudo apt-get install -qq language-pack-en
+	# sudo apt install -qq language-pack-en
 	echo "Updating language and locales.."
-	sudo apt-get install -qq language-pack-en # [Testing..]
+	sudo apt install -qq language-pack-en # [Testing..]
 	# export LANGUAGE=en_US.UTF-8
 	# sudo locale-gen en_US.UTF-8
 	# sudo update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 	echo "Updated successfully!"
 
-	sudo apt-get update > /dev/null
+	sudo apt update > /dev/null
 
 	# install base utils
 	echo "Installing common software.."
-	sudo apt-get install -qq software-properties-common build-essential curl wget unzip git
+	sudo apt install -qq software-properties-common build-essential curl wget unzip git
 	echo "Installed successfully!"
 
-	sudo apt-get update > /dev/null
+	sudo apt update > /dev/null
 
 	# install supervisor
 	echo "Installing supervisor.."
-	sudo apt-get install -qq supervisor
+	sudo apt install -qq supervisor
 	echo "supervisor is installed successfully!"
 
-	sudo apt-get update > /dev/null
+	sudo apt update > /dev/null
 
 	# install redis
 	echo "Installing redis server.."
-	sudo apt-get install -qq redis-server
+	sudo apt install -qq redis-server
 	echo "redis server is installed successfully! Recomended to set password for redis"
 
-	sudo apt-get update > /dev/null
+	sudo apt update > /dev/null
 
 	# install nodejs
 	echo "Installing nodejs.."
-	sudo apt-get install -qq nodejs npm
+	sudo apt install -qq nodejs npm
 	sudo npm install -g n
 	echo "nodejs is installed successfully! Recomended to change the version using n"
 
-	sudo apt-get update > /dev/null
+	sudo apt update > /dev/null
 		
 	# install nginx
 	echo "Installing NGINX.."
-	sudo apt-get install -qq nginx
+	sudo apt install -qq nginx
 	echo "NGINX is installed successfully!"
 
 	# install php and php utils
 	echo "Installing PHP/modules.."
 	sudo add-apt-repository ppa:ondrej/php
-	sudo apt-get update > /dev/null
-	sudo apt-get install -qq php8.4 php8.4-fpm php8.4-mysql php8.4-pgsql php8.4-sqlite3 php8.4-curl \
-		php8.4-gd php8.4-gmp php8.4-mbstring php8.4-memcached \
-		php8.4-zip php8.4-xml php8.4-intl imagemagick php-imagick
+	sudo apt update > /dev/null
+	sudo apt install -qq php8.4 php8.4-fpm php8.4-mysql php8.4-pgsql php8.4-sqlite3 php8.4-curl php8.4-gd php8.4-gmp php8.4-mbstring php8.4-memcached php8.4-zip php8.4-xml php8.4-intl imagemagick php-imagick
 	echo "PHP/modules are installed successfully!"
 
 	# secure php to not to execute the closest file it finds
@@ -77,7 +75,7 @@ if [[ "$COMMAND" = "build" ]] ; then
 
 	# install composer
 	echo "Installing Composer.."
-	# sudo apt-get install -qq composer # still in beta..
+	# sudo apt install -qq composer # still in beta..
 	curl -sS https://getcomposer.org/installer | php
 	sudo mv composer.phar /usr/bin/composer
 	echo "Composer is installed successfully!"
@@ -136,7 +134,7 @@ elif [[ "$COMMAND" = "site" ]] ; then
 		exit 1
 	fi
 
-	sudo apt-get update > /dev/null
+	sudo apt update > /dev/null
 
 	# create nginx server block
 	echo "Creating NGINX server block.."
@@ -190,7 +188,7 @@ elif [[ "$COMMAND" = "site" ]] ; then
 	LETSENCRYPT_IS_INSTALLED=$?
 
 	if [[ $LETSENCRYPT_IS_INSTALLED -ne 0 ]] ; then
-		sudo apt-get install -qq letsencrypt
+		sudo apt install -qq letsencrypt
 		echo "Letsencrypt is successfully installed"
 	else
 		echo "Letsencrypt is already installed."
