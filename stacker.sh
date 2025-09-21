@@ -64,7 +64,7 @@ if [[ "$COMMAND" = "build" ]] ; then
 	sudo apt update > /dev/null
 	sudo apt install -qq php8.4 php8.4-fpm php8.4-mysql php8.4-pgsql php8.4-sqlite3 \
             php8.4-curl php8.4-gd php8.4-gmp php8.4-mbstring php8.4-memcached php8.4-zip \
-            php8.4-xml php8.4-intl imagemagick php-imagick
+            php8.4-bcmath php8.4-imap php8.4-xml php8.4-intl imagemagick php-imagick
 	echo "PHP/modules are installed successfully!"
 
 	# secure php to not to execute the closest file it finds
